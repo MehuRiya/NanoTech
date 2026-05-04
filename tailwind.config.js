@@ -8,9 +8,11 @@ module.exports = {
     extend: {
       colors: {
         primary: "#ffffff",
-        accent: "#2563eb",
-        surface: "#f1f5f9",
-        "dark-bg": "#0f172a",
+        accent: "#e11d48",
+        "accent-hover": "#be123c",
+        surface: "#111827",
+        "surface-alt": "#1f2937",
+        "dark-bg": "#030712",
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
