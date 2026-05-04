@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const WHATSAPP_URL = "https://wa.me/8801518950217";
 const FACEBOOK_URL = "https://facebook.com/NanoTech.BD";
 const PHONE_URL = "tel:+8801518950217";

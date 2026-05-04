@@ -13,7 +13,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const product = products.find((p) => String(p.id) === params.id) || null;
+  const product = products.find((p) => String(p.id) === params.id);
+  if (!product) return { notFound: true };
   return { props: { product } };
 }
 
@@ -27,7 +28,7 @@ const CATEGORY_COLORS = {
 };
 
 export default function ProductDetail({ product }) {
-  if (!product) return null;
+
 
   const badgeClass = CATEGORY_COLORS[product.category] || "bg-slate-500/20 text-slate-300";
   const related = products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 3);

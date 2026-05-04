@@ -18,7 +18,7 @@ export default function SEO({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/nt_logo2_transparent_white.png" />
     </Head>
   );
 }

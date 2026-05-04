@@ -37,7 +37,9 @@ export default function Products() {
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
+                type="button"
                 onClick={() => setActiveCategory(cat)}
+                aria-pressed={activeCategory === cat}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                   activeCategory === cat
                     ? "bg-accent text-white"

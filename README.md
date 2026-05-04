@@ -1,6 +1,6 @@
 # NanoTech Solutions
 
-A B2B IT hardware supplier website built with **Next.js 14** (Pages Router), **Tailwind CSS**, and **Framer Motion**.
+A B2B IT hardware supplier website built with **Next.js 15** (Pages Router), **Tailwind CSS**, and **Framer Motion**.
 
 ## Getting Started
 
