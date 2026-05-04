@@ -47,7 +47,7 @@ export default function Contact() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
             >
-              We're here to help. Reach out via WhatsApp, Facebook, phone, or the form below.
+              We&apos;re here to help. Reach out via WhatsApp, Facebook, phone, or the form below.
             </motion.p>
           </div>
         </section>
@@ -62,7 +62,7 @@ export default function Contact() {
                   <div className="bg-green-900/30 border border-green-700 rounded-xl p-8 text-center">
                     <div className="text-4xl mb-3">✅</div>
                     <h3 className="text-white font-semibold text-lg mb-2">Message Sent!</h3>
-                    <p className="text-slate-300 text-sm">Your message was forwarded to WhatsApp. We'll get back to you shortly.</p>
+                    <p className="text-slate-300 text-sm">Your message was forwarded to WhatsApp. We&apos;ll get back to you shortly.</p>
                     <button
                       onClick={() => { setSubmitted(false); setForm({ name: "", email: "", message: "" }); }}
                       className="mt-4 text-accent text-sm hover:underline"

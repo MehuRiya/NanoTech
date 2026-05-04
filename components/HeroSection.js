@@ -38,7 +38,7 @@ export default function HeroSection() {
           transition={{ duration: 0.7 }}
         >
           <span className="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest uppercase text-blue-300 border border-blue-500/40 rounded-full bg-blue-500/10">
-            Bangladesh's Trusted IT Hardware Supplier
+            Bangladesh&apos;s Trusted IT Hardware Supplier
           </span>
         </motion.div>
 
