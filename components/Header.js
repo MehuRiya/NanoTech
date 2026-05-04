@@ -26,15 +26,15 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-18 md:h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <Image
               src={scrolled ? "/nt_logo2_transparent_dark.png" : "/nt_logo2_transparent_white.png"}
               alt="NanoTech Solutions"
-              width={140}
-              height={40}
-              className="object-contain h-10 w-auto"
+              width={200}
+              height={56}
+              className="object-contain h-14 w-auto"
             />
           </Link>
 

@@ -23,7 +23,7 @@ export default function Products() {
         description="Browse our full range of servers, switches, LAN cards, SFPs, RAM, and power supplies. Contact us for pricing."
       />
       <Header />
-      <main className="pt-20 bg-white min-h-screen">
+      <main className="pt-24 bg-white min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="mb-10">
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Our Products</h1>

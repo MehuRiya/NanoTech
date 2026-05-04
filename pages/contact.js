@@ -29,7 +29,7 @@ export default function Contact() {
         description="Get in touch with NanoTech Solutions for pricing, availability, and expert IT hardware consultation in Bangladesh."
       />
       <Header />
-      <main className="pt-20 min-h-screen bg-white">
+      <main className="pt-24 min-h-screen bg-white">
         {/* Header */}
         <section className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900/40">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

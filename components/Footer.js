@@ -12,9 +12,9 @@ export default function Footer() {
               <Image
                 src="/nt_logo2_transparent_dark.png"
                 alt="NanoTech Solutions"
-                width={140}
-                height={40}
-                className="object-contain h-10 w-auto"
+                width={200}
+                height={56}
+                className="object-contain h-14 w-auto"
               />
             </div>
             <p className="text-gray-500 text-sm leading-relaxed">

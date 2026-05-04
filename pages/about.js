@@ -40,7 +40,7 @@ export default function About() {
         description="Learn about NanoTech Solutions – Bangladesh's trusted supplier of enterprise IT hardware including servers, networking equipment, and more."
       />
       <Header />
-      <main className="pt-20 min-h-screen bg-white">
+      <main className="pt-24 min-h-screen bg-white">
         {/* Hero */}
         <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900/50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
