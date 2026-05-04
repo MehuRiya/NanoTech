@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NanoTech Solutions
+
+A B2B IT hardware supplier website built with **Next.js 14** (Pages Router), **Tailwind CSS**, and **Framer Motion**.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+pages/
+  index.js          # Home page
+  products.js       # Filterable product catalogue
+  product/[id].js   # Individual product detail (SSG)
+  about.js          # About page
+  contact.js        # Contact page with WhatsApp form
+  _app.js           # Global CSS import
+  _document.js      # Google Fonts (Inter)
 
-## Learn More
+components/
+  Header.js         # Sticky header with mobile menu
+  Footer.js         # Footer with links and social
+  HeroSection.js    # Animated hero section
+  ProductCard.js    # Product card with WhatsApp CTA
+  FeatureSection.js # Feature highlights with stagger animation
+  CTAButtons.js     # WhatsApp / Facebook / Phone buttons
+  Testimonials.js   # Customer testimonials grid
+  FloatingWhatsApp.js # Fixed WhatsApp floating button
+  SEO.js            # Head meta tags wrapper
 
-To learn more about Next.js, take a look at the following resources:
+data/
+  products.js       # 12 products across 6 categories
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+public/
+  nt_logo2_transparent_dark.png
+  nt_logo2_transparent_white.png
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Build
 
-## Deploy on Vercel
+```bash
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- WhatsApp: https://wa.me/8801518950217
+- Facebook: https://facebook.com/NanoTech.BD
+- Phone: +880 1518-950217

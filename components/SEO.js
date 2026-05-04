@@ -3,7 +3,7 @@ import Head from "next/head";
 export default function SEO({
   title = "NanoTech Solutions – Premium IT Hardware in Bangladesh",
   description = "NanoTech Solutions supplies servers, switches, LAN cards, SFPs, RAM, and power supplies in Bangladesh. Contact us for pricing and availability.",
-  image = "/nt_logo2_transparent_dark.png",
+  image = "/nt_logo2_transparent_white.png",
 }) {
   return (
     <Head>
