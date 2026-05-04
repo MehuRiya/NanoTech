@@ -23,11 +23,11 @@ export default function Products() {
         description="Browse our full range of servers, switches, LAN cards, SFPs, RAM, and power supplies. Contact us for pricing."
       />
       <Header />
-      <main className="pt-20">
+      <main className="pt-24 bg-white min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="mb-10">
-            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">Our Products</h1>
-            <p className="text-slate-400">
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Our Products</h1>
+            <p className="text-gray-500">
               Enterprise-grade hardware for servers, networking, memory, and power — all available in Bangladesh.
             </p>
           </div>
@@ -43,7 +43,7 @@ export default function Products() {
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                   activeCategory === cat
                     ? "bg-accent text-white"
-                    : "bg-surface border border-slate-700 text-slate-300 hover:text-white hover:border-slate-500"
+                    : "bg-gray-100 border border-gray-200 text-gray-600 hover:text-gray-900 hover:border-gray-400"
                 }`}
               >
                 {cat}
@@ -59,7 +59,7 @@ export default function Products() {
           </div>
 
           {filtered.length === 0 && (
-            <p className="text-slate-400 text-center py-20">No products found in this category.</p>
+            <p className="text-gray-400 text-center py-20">No products found in this category.</p>
           )}
         </div>
       </main>
