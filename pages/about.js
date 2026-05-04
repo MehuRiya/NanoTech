@@ -40,9 +40,9 @@ export default function About() {
         description="Learn about NanoTech Solutions – Bangladesh's trusted supplier of enterprise IT hardware including servers, networking equipment, and more."
       />
       <Header />
-      <main className="pt-20 min-h-screen">
+      <main className="pt-20 min-h-screen bg-white">
         {/* Hero */}
-        <section className="py-20 bg-gradient-to-br from-primary via-slate-800 to-blue-900/50">
+        <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900/50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.h1
               className="text-4xl sm:text-5xl font-extrabold text-white mb-4"
@@ -64,7 +64,7 @@ export default function About() {
         </section>
 
         {/* Stats */}
-        <section className="py-16 bg-surface/40">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {stats.map((stat, i) => (
@@ -77,7 +77,7 @@ export default function About() {
                   transition={{ duration: 0.4, delay: i * 0.08 }}
                 >
                   <p className="text-4xl font-extrabold text-accent mb-1">{stat.value}</p>
-                  <p className="text-slate-400 text-sm">{stat.label}</p>
+                  <p className="text-gray-500 text-sm">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -85,21 +85,21 @@ export default function About() {
         </section>
 
         {/* Mission / Vision / Story */}
-        <section className="py-20 bg-primary">
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {values.map((v, i) => (
                 <motion.div
                   key={v.title}
-                  className="bg-surface border border-slate-700 rounded-xl p-7"
+                  className="bg-gray-50 border border-gray-200 rounded-xl p-7"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
                   <div className="text-3xl mb-4">{v.icon}</div>
-                  <h2 className="text-white font-bold text-xl mb-3">{v.title}</h2>
-                  <p className="text-slate-400 leading-relaxed">{v.description}</p>
+                  <h2 className="text-gray-900 font-bold text-xl mb-3">{v.title}</h2>
+                  <p className="text-gray-500 leading-relaxed">{v.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -107,10 +107,10 @@ export default function About() {
         </section>
 
         {/* Why Trust NanoTech */}
-        <section className="py-20 bg-surface/30">
+        <section className="py-20 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
                 Why Trust NanoTech Solutions?
               </h2>
             </div>
@@ -123,11 +123,11 @@ export default function About() {
                 "Transparent pricing with no hidden charges — what you see is what you pay.",
                 "Post-sales support and warranty assistance on all products.",
               ].map((point, i) => (
-                <div key={i} className="flex items-start gap-3 bg-surface border border-slate-700 rounded-lg p-4">
+                <div key={i} className="flex items-start gap-3 bg-white border border-gray-200 rounded-lg p-4">
                   <svg className="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <p className="text-slate-300 text-sm">{point}</p>
+                  <p className="text-gray-600 text-sm">{point}</p>
                 </div>
               ))}
             </div>

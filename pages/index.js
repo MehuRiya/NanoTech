@@ -4,7 +4,6 @@ import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection";
 import FeatureSection from "../components/FeatureSection";
 import ProductCard from "../components/ProductCard";
-import Testimonials from "../components/Testimonials";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -21,14 +20,14 @@ export default function Home() {
         <HeroSection />
 
         {/* Featured Products */}
-        <section className="py-20 bg-primary">
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-end justify-between mb-10">
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">Featured Products</h2>
-                <p className="text-slate-400">Hand-picked enterprise hardware for your infrastructure</p>
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Featured Products</h2>
+                <p className="text-gray-500">Hand-picked enterprise hardware for your infrastructure</p>
               </div>
-              <Link href="/products" className="hidden sm:inline-flex items-center gap-1 text-accent hover:text-blue-300 text-sm font-medium transition-colors">
+              <Link href="/products" className="hidden sm:inline-flex items-center gap-1 text-accent hover:text-blue-500 text-sm font-medium transition-colors">
                 View all
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -51,7 +50,7 @@ export default function Home() {
             </div>
 
             <div className="mt-8 text-center sm:hidden">
-              <Link href="/products" className="inline-flex items-center gap-1 text-accent hover:text-blue-300 text-sm font-medium">
+              <Link href="/products" className="inline-flex items-center gap-1 text-accent hover:text-blue-500 text-sm font-medium">
                 View all products →
               </Link>
             </div>
@@ -61,7 +60,7 @@ export default function Home() {
         <FeatureSection />
 
         {/* About snippet */}
-        <section className="py-20 bg-primary">
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <motion.div
@@ -71,13 +70,13 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
               >
                 <span className="text-accent text-sm font-semibold uppercase tracking-wider">About NanoTech</span>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">
                   A Trusted Name in IT Hardware
                 </h2>
-                <p className="text-slate-400 leading-relaxed mb-4">
+                <p className="text-gray-500 leading-relaxed mb-4">
                   NanoTech Solutions has been serving businesses across Bangladesh with premium IT hardware. From enterprise servers to network switching and memory modules, we stock what your business needs.
                 </p>
-                <p className="text-slate-400 leading-relaxed mb-6">
+                <p className="text-gray-500 leading-relaxed mb-6">
                   Our team of IT professionals understands the demands of modern infrastructure and helps clients make informed purchasing decisions.
                 </p>
                 <Link
@@ -104,9 +103,9 @@ export default function Home() {
                   { label: "Years of Experience", value: "5+" },
                   { label: "Brands Stocked", value: "20+" },
                 ].map((stat) => (
-                  <div key={stat.label} className="bg-surface border border-slate-700 rounded-xl p-5 text-center">
+                  <div key={stat.label} className="bg-gray-50 border border-gray-200 rounded-xl p-5 text-center">
                     <p className="text-3xl font-extrabold text-accent mb-1">{stat.value}</p>
-                    <p className="text-slate-400 text-sm">{stat.label}</p>
+                    <p className="text-gray-500 text-sm">{stat.label}</p>
                   </div>
                 ))}
               </motion.div>
@@ -115,7 +114,7 @@ export default function Home() {
         </section>
 
         {/* CTA Banner */}
-        <section className="py-16 bg-gradient-to-r from-blue-900 to-accent">
+        <section className="py-16 bg-gradient-to-r from-slate-900 to-accent">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
               Ready to Upgrade Your Infrastructure?
@@ -141,8 +140,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <Testimonials />
       </main>
       <Footer />
       <FloatingWhatsApp />

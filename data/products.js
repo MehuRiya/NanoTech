@@ -15,7 +15,7 @@ const products = [
       "OS Support: Windows Server, Linux",
     ],
     price: "Contact for Price",
-    image: "/images/products/server1.jpg",
+    image: "/images/products/IMG-20260504-WA0010.jpg",
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const products = [
       "OS Support: Windows Server, VMware, Linux",
     ],
     price: "Contact for Price",
-    image: "/images/products/server2.jpg",
+    image: "/images/products/IMG-20260504-WA0013.jpg",
   },
   {
     id: 3,
@@ -51,7 +51,7 @@ const products = [
       "Form Factor: 1U Rack",
     ],
     price: "Contact for Price",
-    image: "/images/products/switch1.jpg",
+    image: "/images/products/IMG-20260504-WA0020.jpg",
   },
   {
     id: 4,
@@ -69,7 +69,7 @@ const products = [
       "Form Factor: 1U Rack",
     ],
     price: "Contact for Price",
-    image: "/images/products/switch2.jpg",
+    image: "/images/products/IMG-20260504-WA0025.jpg",
   },
   {
     id: 5,
@@ -87,25 +87,25 @@ const products = [
       "Operating Temp: 0°C to 55°C",
     ],
     price: "Contact for Price",
-    image: "/images/products/lancard1.jpg",
+    image: "/images/products/IMG-20260504-WA0009.jpg",
   },
   {
     id: 6,
-    name: "Broadcom BCM957414A4142CC 25GbE",
+    name: "Mellanox ConnectX-5 25GbE",
     category: "LAN Card",
-    shortSpecs: "Dual-Port 25GbE SFP28 | PCIe 3.0 x8 | OCP 3.0",
+    shortSpecs: "Dual-Port 25GbE SFP28 | PCIe 3.0 x8 | Low Profile",
     fullSpecs: [
       "Ports: 2x 25GbE SFP28",
       "Interface: PCIe 3.0 x8",
       "Speed: 25Gbps per port",
-      "Controller: Broadcom BCM57414",
+      "Controller: Mellanox ConnectX-5",
       "OS Support: Windows Server, RHEL, VMware",
-      "Features: SR-IOV, RDMA, iSCSI, FCoE",
-      "Form Factor: OCP 3.0 Mezzanine",
+      "Features: SR-IOV, RDMA, RoCE, iSCSI",
+      "Form Factor: Low Profile PCIe",
       "Data Rate: 50Gbps aggregate",
     ],
     price: "Contact for Price",
-    image: "/images/products/lancard2.jpg",
+    image: "/images/products/IMG-20260504-WA0011.jpg",
   },
   {
     id: 7,
@@ -123,7 +123,7 @@ const products = [
       "Temperature: 0°C to 70°C",
     ],
     price: "Contact for Price",
-    image: "/images/products/sfp1.jpg",
+    image: "/images/products/IMG-20260504-WA0030.jpg",
   },
   {
     id: 8,
@@ -141,7 +141,7 @@ const products = [
       "Temperature: 0°C to 70°C",
     ],
     price: "Contact for Price",
-    image: "/images/products/sfp2.jpg",
+    image: "/images/products/IMG-20260504-WA0035.jpg",
   },
   {
     id: 9,
@@ -159,7 +159,7 @@ const products = [
       "Operating Temp: 0°C to 85°C",
     ],
     price: "Contact for Price",
-    image: "/images/products/ram1.jpg",
+    image: "/images/products/IMG-20260504-WA0040.jpg",
   },
   {
     id: 10,
@@ -177,7 +177,7 @@ const products = [
       "Warranty: Lifetime",
     ],
     price: "Contact for Price",
-    image: "/images/products/ram2.jpg",
+    image: "/images/products/IMG-20260504-WA0045.jpg",
   },
   {
     id: 11,
@@ -195,7 +195,7 @@ const products = [
       "Warranty: 5 Years",
     ],
     price: "Contact for Price",
-    image: "/images/products/psu1.jpg",
+    image: "/images/products/IMG-20260504-WA0050.jpg",
   },
   {
     id: 12,
@@ -213,7 +213,7 @@ const products = [
       "Warranty: 2 Years",
     ],
     price: "Contact for Price",
-    image: "/images/products/psu2.jpg",
+    image: "/images/products/IMG-20260504-WA0055.jpg",
   },
 ];
 
