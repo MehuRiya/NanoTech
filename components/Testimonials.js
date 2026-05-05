@@ -42,7 +42,7 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
-              className="bg-surface border border-gray-700/50 rounded-xl p-6 flex flex-col hover:border-accent/30 transition-colors duration-200"
+              className="bg-surface border border-gray-700/50 rounded-2xl p-6 flex flex-col hover:border-accent/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

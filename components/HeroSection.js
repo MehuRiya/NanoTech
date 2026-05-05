@@ -6,31 +6,41 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-dark-bg">
       {/* Background layers */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Subtle grid */}
+        {/* Soft dot matrix — replaces rigid square grid */}
         <div
-          className="absolute inset-0 opacity-[0.04]"
+          className="absolute inset-0 opacity-[0.07]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
+              "radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px)",
+            backgroundSize: "36px 36px",
           }}
         />
         {/* Red glow top-right */}
         <motion.div
-          className="absolute -top-48 -right-48 w-[600px] h-[600px] rounded-full"
+          className="absolute -top-48 -right-48 w-[700px] h-[700px] rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgba(225,29,72,0.12) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(225,29,72,0.15) 0%, transparent 65%)",
           }}
-          animate={{ scale: [1, 1.15, 1], opacity: [0.7, 1, 0.7] }}
+          animate={{ scale: [1, 1.18, 1], opacity: [0.6, 1, 0.6] }}
           transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
+        />
+        {/* Secondary red orb — bottom centre for warmth */}
+        <motion.div
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full"
+          style={{
+            background:
+              "radial-gradient(ellipse, rgba(225,29,72,0.07) 0%, transparent 70%)",
+          }}
+          animate={{ opacity: [0.5, 1, 0.5] }}
+          transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
         />
         {/* Dark grey glow bottom-left */}
         <motion.div
           className="absolute -bottom-48 -left-48 w-[600px] h-[600px] rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgba(55,65,81,0.3) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(55,65,81,0.35) 0%, transparent 70%)",
           }}
           animate={{ scale: [1.15, 1, 1.15] }}
           transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
@@ -120,8 +130,20 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Bottom divider gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-dark-bg to-transparent" />
+      {/* Wave bottom separator → transitions into surface section */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none leading-none">
+        <svg
+          viewBox="0 0 1440 72"
+          preserveAspectRatio="none"
+          className="w-full h-16 sm:h-20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0,36 C240,72 480,0 720,36 C960,72 1200,0 1440,36 L1440,72 L0,72 Z"
+            fill="#111827"
+          />
+        </svg>
+      </div>
     </section>
   );
 }
