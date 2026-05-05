@@ -93,7 +93,7 @@ export default function Contact() {
                         value={form.name}
                         onChange={handleChange}
                         placeholder="e.g. Rafiqul Islam"
-                        className="w-full px-4 py-3 bg-surface-alt border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-accent transition-colors"
+                        className="w-full px-4 py-3 bg-surface-alt border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors"
                       />
                     </div>
                     <div>
@@ -108,7 +108,7 @@ export default function Contact() {
                         value={form.email}
                         onChange={handleChange}
                         placeholder="you@company.com"
-                        className="w-full px-4 py-3 bg-surface-alt border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-accent transition-colors"
+                        className="w-full px-4 py-3 bg-surface-alt border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors"
                       />
                     </div>
                     <div>
@@ -123,7 +123,7 @@ export default function Contact() {
                         onChange={handleChange}
                         rows={5}
                         placeholder="Tell us what hardware you need, quantity, budget, etc."
-                        className="w-full px-4 py-3 bg-surface-alt border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-accent transition-colors resize-none"
+                        className="w-full px-4 py-3 bg-surface-alt border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors resize-none"
                       />
                     </div>
                     <button

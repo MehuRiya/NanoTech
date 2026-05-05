@@ -60,7 +60,7 @@ export default function Products() {
           </div>
 
           {filtered.length === 0 && (
-            <p className="text-gray-600 text-center py-20">No products found in this category.</p>
+            <p className="text-gray-400 text-center py-20">No products found in this category.</p>
           )}
         </div>
       </main>
