@@ -26,13 +26,14 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-20 bg-surface/40">
+    <section className="py-20 bg-dark-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <span className="text-accent text-xs font-semibold uppercase tracking-widest">Testimonials</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">
             What Our Clients Say
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
+          <p className="text-gray-500 max-w-xl mx-auto">
             Businesses across Bangladesh trust NanoTech Solutions for their critical infrastructure needs.
           </p>
         </div>
@@ -41,7 +42,7 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
-              className="bg-surface border border-slate-700 rounded-xl p-6 flex flex-col"
+              className="bg-surface border border-gray-700/50 rounded-xl p-6 flex flex-col hover:border-accent/30 transition-colors duration-200"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -56,17 +57,17 @@ export default function Testimonials() {
                 ))}
               </div>
 
-              <p className="text-slate-300 text-sm leading-relaxed flex-1 mb-5 italic">
+              <p className="text-gray-300 text-sm leading-relaxed flex-1 mb-5 italic">
                 &ldquo;{t.quote}&rdquo;
               </p>
 
               <div className="flex items-center gap-3 mt-auto">
-                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-sm shrink-0">
+                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-sm shrink-0 border border-accent/30">
                   {t.initials}
                 </div>
                 <div>
                   <p className="text-white font-semibold text-sm">{t.name}</p>
-                  <p className="text-slate-400 text-xs">{t.company}</p>
+                  <p className="text-gray-500 text-xs">{t.company}</p>
                 </div>
               </div>
             </motion.div>

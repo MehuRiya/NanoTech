@@ -20,16 +20,16 @@ export async function getStaticProps({ params }) {
 }
 
 const CATEGORY_COLORS = {
-  Server: "bg-purple-100 text-purple-700",
-  Switch: "bg-blue-100 text-blue-700",
-  "LAN Card": "bg-cyan-100 text-cyan-700",
-  SFP: "bg-teal-100 text-teal-700",
-  RAM: "bg-orange-100 text-orange-700",
-  "Power Supply": "bg-yellow-100 text-yellow-700",
+  Server: "bg-purple-900/40 text-purple-300 border-purple-700/50",
+  Switch: "bg-blue-900/40 text-blue-300 border-blue-700/50",
+  "LAN Card": "bg-cyan-900/40 text-cyan-300 border-cyan-700/50",
+  SFP: "bg-teal-900/40 text-teal-300 border-teal-700/50",
+  RAM: "bg-orange-900/40 text-orange-300 border-orange-700/50",
+  "Power Supply": "bg-yellow-900/40 text-yellow-300 border-yellow-700/50",
 };
 
 export default function ProductDetail({ product }) {
-  const badgeClass = CATEGORY_COLORS[product.category] || "bg-gray-100 text-gray-700";
+  const badgeClass = CATEGORY_COLORS[product.category] || "bg-gray-800 text-gray-300 border-gray-700";
   const related = products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 3);
 
   return (
@@ -39,20 +39,20 @@ export default function ProductDetail({ product }) {
         description={`${product.name} – ${product.shortSpecs}. Contact NanoTech Solutions for pricing and availability.`}
       />
       <Header />
-      <main className="pt-24 min-h-screen bg-white">
+      <main className="pt-24 min-h-screen bg-dark-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
-            <Link href="/" className="hover:text-gray-900 transition-colors">Home</Link>
+          <nav className="flex items-center gap-2 text-sm text-gray-500 mb-8">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/products" className="hover:text-gray-900 transition-colors">Products</Link>
+            <Link href="/products" className="hover:text-white transition-colors">Products</Link>
             <span>/</span>
-            <span className="text-gray-700 truncate">{product.name}</span>
+            <span className="text-gray-300 truncate">{product.name}</span>
           </nav>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {/* Image */}
-            <div className="bg-gray-100 border border-gray-200 rounded-2xl overflow-hidden flex items-center justify-center min-h-80">
+            <div className="bg-surface-alt border border-gray-700/60 rounded-2xl overflow-hidden flex items-center justify-center min-h-80">
               {product.image ? (
                 <div className="relative w-full h-80">
                   <Image
@@ -75,17 +75,17 @@ export default function ProductDetail({ product }) {
 
             {/* Details */}
             <div className="flex flex-col">
-              <span className={`inline-block px-3 py-1 text-xs font-semibold rounded-full mb-4 w-fit ${badgeClass}`}>
+              <span className={`inline-block px-3 py-1 text-xs font-semibold rounded-full mb-4 w-fit border ${badgeClass}`}>
                 {product.category}
               </span>
-              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">{product.name}</h1>
-              <p className="text-gray-500 mb-6">{product.shortSpecs}</p>
+              <h1 className="text-2xl sm:text-3xl font-bold text-white mb-3">{product.name}</h1>
+              <p className="text-gray-400 mb-6">{product.shortSpecs}</p>
 
-              <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 mb-8">
-                <h2 className="text-gray-900 font-semibold mb-4 text-sm uppercase tracking-wider">Full Specifications</h2>
+              <div className="bg-surface-alt border border-gray-700/60 rounded-xl p-5 mb-8">
+                <h2 className="text-gray-300 font-semibold mb-4 text-sm uppercase tracking-wider">Full Specifications</h2>
                 <ul className="space-y-2">
                   {product.fullSpecs.map((spec, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
                       <svg className="w-4 h-4 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
@@ -110,7 +110,7 @@ export default function ProductDetail({ product }) {
           {/* Related Products */}
           {related.length > 0 && (
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Related Products</h2>
+              <h2 className="text-2xl font-bold text-white mb-6">Related Products</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {related.map((p) => (
                   <ProductCard key={p.id} product={p} />

@@ -22,19 +22,22 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? "bg-white/95 backdrop-blur-sm shadow-md" : "bg-transparent"
+        scrolled
+          ? "bg-gray-950/95 backdrop-blur-md shadow-lg shadow-black/40 border-b border-gray-800/60"
+          : "bg-gray-950/80 backdrop-blur-sm border-b border-gray-800/30"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18 md:h-24">
+        <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <Image
-              src={scrolled ? "/nt_logo2_transparent_dark.png" : "/nt_logo2_transparent_white.png"}
+              src="/nt_logo2_transparent_white.png"
               alt="NanoTech Solutions"
-              width={200}
-              height={56}
-              className="object-contain h-14 w-auto"
+              width={240}
+              height={68}
+              className="object-contain h-16 md:h-20 w-auto"
+              priority
             />
           </Link>
 
@@ -44,9 +47,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`transition-colors duration-200 font-medium text-sm ${
-                  scrolled ? "text-gray-700 hover:text-gray-900" : "text-slate-300 hover:text-white"
-                }`}
+                className="text-gray-300 hover:text-white transition-colors duration-200 font-medium text-sm"
               >
                 {link.label}
               </Link>
@@ -55,7 +56,7 @@ export default function Header() {
               href="https://wa.me/8801518950217"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-accent hover:bg-blue-500 text-white text-sm font-semibold rounded-lg transition-colors duration-200"
+              className="px-5 py-2 bg-accent hover:bg-accent-hover text-white text-sm font-semibold rounded-lg transition-colors duration-200"
             >
               Contact Us
             </a>
@@ -63,7 +64,7 @@ export default function Header() {
 
           {/* Mobile hamburger */}
           <button
-            className={`md:hidden p-2 rounded-md transition-colors ${scrolled ? "text-gray-700 hover:text-gray-900" : "text-slate-300 hover:text-white"}`}
+            className="md:hidden p-2 rounded-md text-gray-300 hover:text-white transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
@@ -82,13 +83,13 @@ export default function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div id="mobile-nav" className="md:hidden bg-white/98 backdrop-blur-sm border-t border-gray-200 px-4 py-4">
+        <div id="mobile-nav" className="md:hidden bg-gray-950 border-t border-gray-800 px-4 py-4">
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium py-1"
+                className="text-gray-300 hover:text-white transition-colors duration-200 font-medium py-1"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
@@ -98,7 +99,7 @@ export default function Header() {
               href="https://wa.me/8801518950217"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 px-4 py-2 bg-accent hover:bg-blue-500 text-white text-sm font-semibold rounded-lg transition-colors duration-200 text-center"
+              className="mt-2 px-4 py-2 bg-accent hover:bg-accent-hover text-white text-sm font-semibold rounded-lg transition-colors duration-200 text-center"
             >
               Contact Us
             </a>
