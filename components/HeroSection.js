@@ -1,8 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, MotionConfig } from "framer-motion";
 import Link from "next/link";
 
 export default function HeroSection() {
   return (
+    <MotionConfig reducedMotion="user">
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-dark-bg">
       {/* Background layers */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
