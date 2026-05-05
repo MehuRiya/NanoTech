@@ -29,10 +29,19 @@ export default function Contact() {
         description="Get in touch with NanoTech Solutions for pricing, availability, and expert IT hardware consultation in Bangladesh."
       />
       <Header />
-      <main className="pt-24 min-h-screen bg-white">
-        {/* Header */}
-        <section className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900/40">
+      <main className="pt-24 min-h-screen bg-dark-bg">
+        {/* Hero */}
+        <section className="py-16 bg-surface border-b border-gray-800">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/40 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-widest mb-6"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+              We&apos;re here to help
+            </motion.div>
             <motion.h1
               className="text-4xl sm:text-5xl font-extrabold text-white mb-4"
               initial={{ opacity: 0, y: 20 }}
@@ -42,27 +51,27 @@ export default function Contact() {
               Get In Touch
             </motion.h1>
             <motion.p
-              className="text-slate-300 text-lg"
+              className="text-gray-400 text-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
             >
-              We&apos;re here to help. Reach out via WhatsApp, Facebook, phone, or the form below.
+              Reach out via WhatsApp, Facebook, phone, or the form below.
             </motion.p>
           </div>
         </section>
 
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-dark-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact form */}
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+                <h2 className="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
                 {submitted ? (
-                  <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center">
+                  <div className="bg-green-900/20 border border-green-700/40 rounded-xl p-8 text-center">
                     <div className="text-4xl mb-3">✅</div>
-                    <h3 className="text-gray-900 font-semibold text-lg mb-2">Message Sent!</h3>
-                    <p className="text-gray-600 text-sm">Your message was forwarded to WhatsApp. We&apos;ll get back to you shortly.</p>
+                    <h3 className="text-white font-semibold text-lg mb-2">Message Sent!</h3>
+                    <p className="text-gray-400 text-sm">Your message was forwarded to WhatsApp. We&apos;ll get back to you shortly.</p>
                     <button
                       onClick={() => { setSubmitted(false); setForm({ name: "", email: "", message: "" }); }}
                       className="mt-4 text-accent text-sm hover:underline"
@@ -73,7 +82,7 @@ export default function Contact() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div>
-                      <label className="block text-gray-700 text-sm font-medium mb-1.5" htmlFor="name">
+                      <label className="block text-gray-300 text-sm font-medium mb-1.5" htmlFor="name">
                         Your Name
                       </label>
                       <input
@@ -84,11 +93,11 @@ export default function Contact() {
                         value={form.name}
                         onChange={handleChange}
                         placeholder="e.g. Rafiqul Islam"
-                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent transition-colors"
+                        className="w-full px-4 py-3 bg-surface-alt border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-accent transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-gray-700 text-sm font-medium mb-1.5" htmlFor="email">
+                      <label className="block text-gray-300 text-sm font-medium mb-1.5" htmlFor="email">
                         Email Address
                       </label>
                       <input
@@ -99,11 +108,11 @@ export default function Contact() {
                         value={form.email}
                         onChange={handleChange}
                         placeholder="you@company.com"
-                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent transition-colors"
+                        className="w-full px-4 py-3 bg-surface-alt border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-accent transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-gray-700 text-sm font-medium mb-1.5" htmlFor="message">
+                      <label className="block text-gray-300 text-sm font-medium mb-1.5" htmlFor="message">
                         Message
                       </label>
                       <textarea
@@ -114,12 +123,12 @@ export default function Contact() {
                         onChange={handleChange}
                         rows={5}
                         placeholder="Tell us what hardware you need, quantity, budget, etc."
-                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-accent transition-colors resize-none"
+                        className="w-full px-4 py-3 bg-surface-alt border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-accent transition-colors resize-none"
                       />
                     </div>
                     <button
                       type="submit"
-                      className="w-full py-3 bg-accent hover:bg-blue-500 text-white font-semibold rounded-lg transition-colors duration-200"
+                      className="w-full py-3 bg-accent hover:bg-accent-hover text-white font-semibold rounded-lg transition-colors duration-200"
                     >
                       Send via WhatsApp
                     </button>
@@ -129,12 +138,12 @@ export default function Contact() {
 
               {/* Contact info */}
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Directly</h2>
+                <h2 className="text-2xl font-bold text-white mb-6">Contact Directly</h2>
                 <CTAButtons />
 
-                <div className="mt-8 bg-gray-50 border border-gray-200 rounded-xl p-6 space-y-4">
-                  <h3 className="text-gray-900 font-semibold">Business Details</h3>
-                  <div className="space-y-3 text-sm text-gray-500">
+                <div className="mt-8 bg-surface-alt border border-gray-700/60 rounded-xl p-6 space-y-4">
+                  <h3 className="text-white font-semibold">Business Details</h3>
+                  <div className="space-y-3 text-sm text-gray-400">
                     <div className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -146,7 +155,7 @@ export default function Contact() {
                       <svg className="w-5 h-5 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z" />
                       </svg>
-                      <a href="tel:+8801518950217" className="hover:text-gray-900 transition-colors">+880 1518-950217</a>
+                      <a href="tel:+8801518950217" className="hover:text-white transition-colors">+880 1518-950217</a>
                     </div>
                     <div className="flex items-center gap-3">
                       <svg className="w-5 h-5 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -158,8 +167,8 @@ export default function Contact() {
                 </div>
 
                 {/* Map placeholder */}
-                <div className="mt-6 bg-gray-50 border border-gray-200 rounded-xl overflow-hidden h-48 flex items-center justify-center">
-                  <div className="text-center text-gray-400">
+                <div className="mt-6 bg-surface-alt border border-gray-700/60 rounded-xl overflow-hidden h-48 flex items-center justify-center">
+                  <div className="text-center text-gray-600">
                     <svg className="w-10 h-10 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                     </svg>
