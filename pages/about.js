@@ -5,10 +5,8 @@ import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import { motion } from "framer-motion";
 
 const stats = [
-  { label: "Years in Business", value: "5+" },
   { label: "Products Stocked", value: "50+" },
   { label: "Happy Customers", value: "200+" },
-  { label: "Brands Available", value: "20+" },
 ];
 
 const values = [
