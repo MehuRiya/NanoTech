@@ -73,11 +73,11 @@ export default function About() {
         {/* Stats */}
         <section className="py-16 bg-surface-alt">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 gap-6 max-w-lg mx-auto">
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
-                  className="text-center"
+                  className="bg-surface border border-gray-700/60 rounded-2xl p-6 text-center hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -102,7 +102,7 @@ export default function About() {
               {values.map((v, i) => (
                 <motion.div
                   key={v.title}
-                  className="bg-surface-alt border border-gray-700/60 rounded-xl p-7 hover:border-accent/30 transition-colors duration-200"
+                  className="bg-surface-alt border border-gray-700/60 rounded-2xl p-7 hover:border-accent/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -135,7 +135,7 @@ export default function About() {
                 "Transparent pricing with no hidden charges — what you see is what you pay.",
                 "Post-sales support and warranty assistance on all products.",
               ].map((point, i) => (
-                <div key={i} className="flex items-start gap-3 bg-surface-alt border border-gray-700/60 rounded-lg p-4">
+                <div key={i} className="flex items-start gap-3 bg-surface-alt border border-gray-700/60 rounded-xl p-4 hover:border-accent/30 transition-colors duration-200">
                   <svg className="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>

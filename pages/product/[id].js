@@ -52,7 +52,7 @@ export default function ProductDetail({ product }) {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {/* Image */}
-            <div className="bg-surface-alt border border-gray-700/60 rounded-2xl overflow-hidden flex items-center justify-center min-h-80">
+            <div className="bg-surface-alt border border-gray-700/60 rounded-3xl overflow-hidden flex items-center justify-center min-h-80">
               {product.image ? (
                 <div className="relative w-full h-80">
                   <Image
@@ -81,7 +81,7 @@ export default function ProductDetail({ product }) {
               <h1 className="text-2xl sm:text-3xl font-bold text-white mb-3">{product.name}</h1>
               <p className="text-gray-400 mb-6">{product.shortSpecs}</p>
 
-              <div className="bg-surface-alt border border-gray-700/60 rounded-xl p-5 mb-8">
+              <div className="bg-surface-alt border border-gray-700/60 rounded-2xl p-5 mb-8">
                 <h2 className="text-gray-300 font-semibold mb-4 text-sm uppercase tracking-wider">Full Specifications</h2>
                 <ul className="space-y-2">
                   {product.fullSpecs.map((spec, i) => (

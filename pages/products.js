@@ -28,7 +28,7 @@ export default function Products() {
           <div className="mb-10">
             <span className="text-accent text-xs font-semibold uppercase tracking-widest">Catalogue</span>
             <h1 className="text-3xl sm:text-4xl font-bold text-white mt-1 mb-2">Our Products</h1>
-            <p className="text-gray-400">
+            <p className="text-gray-400 max-w-xl">
               Enterprise-grade hardware for servers, networking, memory, and power — all available in Bangladesh.
             </p>
           </div>
@@ -41,10 +41,10 @@ export default function Products() {
                 type="button"
                 onClick={() => setActiveCategory(cat)}
                 aria-pressed={activeCategory === cat}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
                   activeCategory === cat
-                    ? "bg-accent text-white"
-                    : "bg-surface-alt border border-gray-700 text-gray-400 hover:text-white hover:border-gray-500"
+                    ? "bg-accent text-white shadow-lg shadow-accent/25"
+                    : "bg-surface-alt border border-gray-700 text-gray-400 hover:text-white hover:border-accent/40 hover:bg-surface"
                 }`}
               >
                 {cat}

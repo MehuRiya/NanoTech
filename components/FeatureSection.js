@@ -79,9 +79,9 @@ export default function FeatureSection() {
             <motion.div
               key={feature.title}
               variants={cardVariants}
-              className="bg-surface-alt border border-gray-700/50 rounded-xl p-6 text-center hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5 transition-all duration-200"
+              className="bg-surface-alt border border-gray-700/50 rounded-2xl p-6 text-center hover:border-accent/50 hover:shadow-xl hover:shadow-accent/8 hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mx-auto mb-4">
+              <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mx-auto mb-4">
                 {feature.icon}
               </div>
               <h3 className="text-white font-semibold text-lg mb-2">{feature.title}</h3>

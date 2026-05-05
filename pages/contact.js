@@ -93,7 +93,7 @@ export default function Contact() {
                         value={form.name}
                         onChange={handleChange}
                         placeholder="e.g. Rafiqul Islam"
-                        className="w-full px-4 py-3 bg-surface-alt border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors"
+                        className="w-full px-4 py-3 bg-surface-alt border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-200"
                       />
                     </div>
                     <div>
@@ -108,7 +108,7 @@ export default function Contact() {
                         value={form.email}
                         onChange={handleChange}
                         placeholder="you@company.com"
-                        className="w-full px-4 py-3 bg-surface-alt border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors"
+                        className="w-full px-4 py-3 bg-surface-alt border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-200"
                       />
                     </div>
                     <div>
@@ -123,12 +123,12 @@ export default function Contact() {
                         onChange={handleChange}
                         rows={5}
                         placeholder="Tell us what hardware you need, quantity, budget, etc."
-                        className="w-full px-4 py-3 bg-surface-alt border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors resize-none"
+                        className="w-full px-4 py-3 bg-surface-alt border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-200 resize-none"
                       />
                     </div>
                     <button
                       type="submit"
-                      className="w-full py-3 bg-accent hover:bg-accent-hover text-white font-semibold rounded-lg transition-colors duration-200"
+                      className="w-full py-3.5 bg-accent hover:bg-accent-hover text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-accent/30"
                     >
                       Send via WhatsApp
                     </button>
