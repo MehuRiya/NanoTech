@@ -40,17 +40,6 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Badge */}
-        <motion.div
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/40 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-widest mb-8"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-          Bangladesh&apos;s Premier IT Hardware Supplier
-        </motion.div>
-
         {/* Headline */}
         <motion.h1
           className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white leading-[1.08] tracking-tight mb-6"
@@ -79,9 +68,8 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
         >
-          We supply premium servers, switches, LAN cards, SFPs, RAM, and power
-          supplies — sourced from world-class brands and delivered to businesses
-          across Bangladesh.
+          We supply servers, switches, LAN cards, SFPs, RAM, and power
+          supplies — sourced from world-class brands and delivered to businesses.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -123,8 +111,6 @@ export default function HeroSection() {
           {[
             { value: "50+", label: "Products" },
             { value: "200+", label: "Clients Served" },
-            { value: "20+", label: "Brands" },
-            { value: "5+", label: "Years Active" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="text-2xl sm:text-3xl font-extrabold text-white">{stat.value}</p>

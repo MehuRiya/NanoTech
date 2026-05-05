@@ -101,8 +101,6 @@ export default function Home() {
                 {[
                   { label: "Products Available", value: "50+" },
                   { label: "Happy Clients", value: "200+" },
-                  { label: "Years of Experience", value: "5+" },
-                  { label: "Brands Stocked", value: "20+" },
                 ].map((stat) => (
                   <div key={stat.label} className="bg-surface border border-gray-700/60 rounded-xl p-5 text-center">
                     <p className="text-3xl font-extrabold text-accent mb-1">{stat.value}</p>
