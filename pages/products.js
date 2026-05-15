@@ -1,5 +1,3 @@
-'use client';
-
 import { useState, useEffect } from "react";
 import SEO from "../components/SEO";
 import Header from "../components/Header";

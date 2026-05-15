@@ -25,11 +25,7 @@ export function ThemeProvider({ children }) {
     localStorage.setItem("theme", newTheme);
   };
 
-  // Prevent hydration mismatch by only rendering after mount
-  if (!mounted) {
-    return children;
-  }
-
+  // Return provider with default values during mount phase
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, mounted }}>
       {children}

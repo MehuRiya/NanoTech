@@ -120,9 +120,7 @@ export default function ProductCard({ product }) {
           isDark ? "border-gray-700/60" : "border-gray-300/60"
         }`}>
           <div className="flex flex-col">
-            <span className={`text-xs uppercase tracking-wider font-semibold mb-0.5 ${
-              isDark ? "text-gray-500" : "text-gray-500"
-            }`}>Price</span>
+            <span className="text-xs uppercase tracking-wider font-semibold mb-0.5 text-gray-500">Price</span>
             <span className="text-accent font-bold text-sm group-hover:text-accent-hover transition-colors duration-200">{product.price}</span>
           </div>
           <a
