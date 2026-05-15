@@ -3,12 +3,12 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const CATEGORY_COLORS = {
-  Server: "bg-purple-900/40 text-purple-300 border-purple-700/50 hover:bg-purple-900/60 dark:bg-purple-900/40 dark:text-purple-300",
-  Switch: "bg-blue-900/40 text-blue-300 border-blue-700/50 hover:bg-blue-900/60 dark:bg-blue-900/40 dark:text-blue-300",
-  "LAN Card": "bg-cyan-900/40 text-cyan-300 border-cyan-700/50 hover:bg-cyan-900/60 dark:bg-cyan-900/40 dark:text-cyan-300",
-  SFP: "bg-teal-900/40 text-teal-300 border-teal-700/50 hover:bg-teal-900/60 dark:bg-teal-900/40 dark:text-teal-300",
-  RAM: "bg-orange-900/40 text-orange-300 border-orange-700/50 hover:bg-orange-900/60 dark:bg-orange-900/40 dark:text-orange-300",
-  "Power Supply": "bg-yellow-900/40 text-yellow-300 border-yellow-700/50 hover:bg-yellow-900/60 dark:bg-yellow-900/40 dark:text-yellow-300",
+  Server: "bg-purple-900/40 text-purple-300 border-purple-700/50 hover:bg-purple-900/60",
+  Switch: "bg-blue-900/40 text-blue-300 border-blue-700/50 hover:bg-blue-900/60",
+  "LAN Card": "bg-cyan-900/40 text-cyan-300 border-cyan-700/50 hover:bg-cyan-900/60",
+  SFP: "bg-teal-900/40 text-teal-300 border-teal-700/50 hover:bg-teal-900/60",
+  RAM: "bg-orange-900/40 text-orange-300 border-orange-700/50 hover:bg-orange-900/60",
+  "Power Supply": "bg-yellow-900/40 text-yellow-300 border-yellow-700/50 hover:bg-yellow-900/60",
 };
 
 const LIGHT_MODE_CATEGORY_COLORS = {

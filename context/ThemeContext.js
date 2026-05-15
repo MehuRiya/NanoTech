@@ -13,7 +13,9 @@ export function ThemeProvider({ children }) {
     const initialTheme = saved || (prefersDark ? "dark" : "light");
     
     setTheme(initialTheme);
-    document.documentElement.className = initialTheme;
+    const htmlElement = document.documentElement;
+    htmlElement.classList.remove("light", "dark");
+    htmlElement.classList.add(initialTheme);
     localStorage.setItem("theme", initialTheme);
     setMounted(true);
   }, []);
@@ -21,7 +23,9 @@ export function ThemeProvider({ children }) {
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
-    document.documentElement.className = newTheme;
+    const htmlElement = document.documentElement;
+    htmlElement.classList.remove("light", "dark");
+    htmlElement.classList.add(newTheme);
     localStorage.setItem("theme", newTheme);
   };
 
