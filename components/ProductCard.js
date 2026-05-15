@@ -59,13 +59,13 @@ export default function ProductCard({ product }) {
 
         {/* Product Name */}
         <Link href={`/product/${product.id}`} className="group/link">
-          <h3 className="text-white font-bold text-base mb-2 group-hover/link:text-accent transition-colors duration-200 line-clamp-2 min-h-[3rem]">
+          <h3 className="text-white font-bold text-base mb-2 group-hover/link:text-accent transition-colors duration-200 line-clamp-2">
             {product.name}
           </h3>
         </Link>
 
         {/* Specs Preview */}
-        <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1 line-clamp-3 min-h-[3rem]">
+        <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1 line-clamp-3">
           {product.shortSpecs}
         </p>
 
