@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { useTheme } from "../hooks/useTheme";
 
 const CATEGORY_COLORS = {
   Server: "bg-purple-900/40 text-purple-300 border-purple-700/50 hover:bg-purple-900/60",
@@ -11,19 +12,40 @@ const CATEGORY_COLORS = {
   "Power Supply": "bg-yellow-900/40 text-yellow-300 border-yellow-700/50 hover:bg-yellow-900/60",
 };
 
+const LIGHT_MODE_CATEGORY_COLORS = {
+  Server: "bg-purple-100/60 text-purple-700 border-purple-200/60 hover:bg-purple-100/80",
+  Switch: "bg-blue-100/60 text-blue-700 border-blue-200/60 hover:bg-blue-100/80",
+  "LAN Card": "bg-cyan-100/60 text-cyan-700 border-cyan-200/60 hover:bg-cyan-100/80",
+  SFP: "bg-teal-100/60 text-teal-700 border-teal-200/60 hover:bg-teal-100/80",
+  RAM: "bg-orange-100/60 text-orange-700 border-orange-200/60 hover:bg-orange-100/80",
+  "Power Supply": "bg-yellow-100/60 text-yellow-700 border-yellow-200/60 hover:bg-yellow-100/80",
+};
+
+// Default badge classes for missing categories
+const DEFAULT_DARK_BADGE = "bg-gray-800 text-gray-300 border-gray-700";
+const DEFAULT_LIGHT_BADGE = "bg-gray-200 text-gray-700 border-gray-300";
+
 export default function ProductCard({ product }) {
   const [isHovering, setIsHovering] = useState(false);
-  const badgeClass = CATEGORY_COLORS[product.category] || "bg-gray-800 text-gray-300 border-gray-700";
+  const { isDark } = useTheme();
+  
+  const colorMap = isDark ? CATEGORY_COLORS : LIGHT_MODE_CATEGORY_COLORS;
+  const defaultBadge = isDark ? DEFAULT_DARK_BADGE : DEFAULT_LIGHT_BADGE;
+  const badgeClass = colorMap[product.category] || defaultBadge;
   const message = `Hello NanoTech Solutions! I'm interested in ${product.name}. Please share pricing and availability.`;
 
   return (
     <div 
-      className="bg-surface-alt border border-gray-700/60 rounded-2xl overflow-hidden flex flex-col hover:border-accent/50 hover:shadow-2xl hover:shadow-accent/20 hover:-translate-y-2 transition-all duration-300 group h-full"
+      className={`rounded-2xl overflow-hidden flex flex-col hover:border-accent/50 hover:shadow-2xl hover:shadow-accent/20 hover:-translate-y-2 transition-all duration-300 group h-full border ${
+        isDark
+          ? "bg-surface-alt border-gray-700/60"
+          : "bg-light-surface border-gray-300/60"
+      }`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
       {/* Image Container with Animation */}
-      <div className="relative h-56 bg-gray-800 overflow-hidden">
+      <div className={`relative h-56 overflow-hidden ${isDark ? "bg-gray-800" : "bg-gray-200"}`}>
         {product.image ? (
           <>
             <Image
@@ -35,10 +57,18 @@ export default function ProductCard({ product }) {
               priority={false}
             />
             {/* Overlay gradient on hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-surface-alt via-transparent to-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
+            <div className={`absolute inset-0 opacity-0 group-hover:opacity-40 transition-opacity duration-300 ${
+              isDark
+                ? "bg-gradient-to-t from-surface-alt via-transparent to-transparent"
+                : "bg-gradient-to-t from-light-surface via-transparent to-transparent"
+            }`} />
           </>
         ) : (
-          <div className="absolute inset-0 flex items-center justify-center text-gray-400 bg-gradient-to-br from-gray-800 to-gray-900">
+          <div className={`absolute inset-0 flex items-center justify-center ${
+            isDark
+              ? "text-gray-400 bg-gradient-to-br from-gray-800 to-gray-900"
+              : "text-gray-500 bg-gradient-to-br from-gray-200 to-gray-300"
+          }`}>
             <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
@@ -59,20 +89,28 @@ export default function ProductCard({ product }) {
 
         {/* Product Name */}
         <Link href={`/product/${product.id}`} className="group/link">
-          <h3 className="text-white font-bold text-base mb-2 group-hover/link:text-accent transition-colors duration-200 line-clamp-2">
+          <h3 className={`font-bold text-base mb-2 group-hover/link:text-accent transition-colors duration-200 line-clamp-2 ${
+            isDark ? "text-white" : "text-gray-900"
+          }`}>
             {product.name}
           </h3>
         </Link>
 
         {/* Specs Preview */}
-        <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1 line-clamp-2">
+        <p className={`text-sm leading-relaxed mb-4 flex-1 line-clamp-2 ${
+          isDark ? "text-gray-400" : "text-gray-600"
+        }`}>
           {product.shortSpecs}
         </p>
 
         {/* Price and Action */}
-        <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-700/60">
+        <div className={`flex items-center justify-between mt-auto pt-4 border-t ${
+          isDark ? "border-gray-700/60" : "border-gray-300/60"
+        }`}>
           <div className="flex flex-col">
-            <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-0.5">Price</span>
+            <span className={`text-xs uppercase tracking-wider font-semibold mb-0.5 ${
+              isDark ? "text-gray-500" : "text-gray-600"
+            }`}>Price</span>
             <span className="text-accent font-bold text-sm group-hover:text-accent-hover transition-colors duration-200">{product.price}</span>
           </div>
           <a

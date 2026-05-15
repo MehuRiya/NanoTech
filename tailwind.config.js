@@ -4,6 +4,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -13,6 +14,12 @@ module.exports = {
         surface: "#111827",
         "surface-alt": "#1f2937",
         "dark-bg": "#030712",
+        // Light mode colors
+        "light-bg": "#f9fafb",
+        "light-surface": "#f3f4f6",
+        "light-surface-alt": "#e5e7eb",
+        "light-text": "#111827",
+        "light-text-secondary": "#6b7280",
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
