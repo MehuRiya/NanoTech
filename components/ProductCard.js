@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useTheme } from "../hooks/useTheme";
 
 const CATEGORY_COLORS = {
   Server: "bg-purple-900/40 text-purple-300 border-purple-700/50 hover:bg-purple-900/60",
@@ -22,25 +23,7 @@ const LIGHT_MODE_CATEGORY_COLORS = {
 
 export default function ProductCard({ product }) {
   const [isHovering, setIsHovering] = useState(false);
-  const [isDark, setIsDark] = useState(true);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    // Check theme from html element
-    const htmlElement = document.documentElement;
-    const theme = htmlElement.classList.contains('light') ? 'light' : 'dark';
-    setIsDark(theme === 'dark');
-    setMounted(true);
-
-    // Listen for theme changes
-    const observer = new MutationObserver(() => {
-      const newTheme = htmlElement.classList.contains('light') ? 'light' : 'dark';
-      setIsDark(newTheme === 'dark');
-    });
-
-    observer.observe(htmlElement, { attributes: true, attributeFilter: ['class'] });
-    return () => observer.disconnect();
-  }, []);
+  const { isDark } = useTheme();
   
   const colorMap = isDark ? CATEGORY_COLORS : LIGHT_MODE_CATEGORY_COLORS;
   const badgeClass = colorMap[product.category] || (isDark ? "bg-gray-800 text-gray-300 border-gray-700" : "bg-gray-200 text-gray-700 border-gray-300");
@@ -120,7 +103,9 @@ export default function ProductCard({ product }) {
           isDark ? "border-gray-700/60" : "border-gray-300/60"
         }`}>
           <div className="flex flex-col">
-            <span className="text-xs uppercase tracking-wider font-semibold mb-0.5 text-gray-500">Price</span>
+            <span className={`text-xs uppercase tracking-wider font-semibold mb-0.5 ${
+              isDark ? "text-gray-500" : "text-gray-600"
+            }`}>Price</span>
             <span className="text-accent font-bold text-sm group-hover:text-accent-hover transition-colors duration-200">{product.price}</span>
           </div>
           <a

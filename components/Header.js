@@ -33,11 +33,21 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close dropdowns when clicking outside
+  // Close dropdown when clicking outside
   useEffect(() => {
-    const handleClickOutside = () => {
-      setProductsDropdownOpen(false);
+    const handleClickOutside = (e) => {
+      // Get the dropdown container
+      const dropdownButton = document.querySelector('[data-products-dropdown-button]');
+      const dropdownMenu = document.querySelector('[data-products-dropdown-menu]');
+      
+      // Check if click is outside both button and menu
+      if (dropdownButton && dropdownMenu) {
+        if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+          setProductsDropdownOpen(false);
+        }
+      }
     };
+    
     document.addEventListener("click", handleClickOutside);
     return () => document.removeEventListener("click", handleClickOutside);
   }, []);
@@ -79,6 +89,7 @@ export default function Header() {
                 return (
                   <div key={link.href} className="relative group">
                     <button
+                      data-products-dropdown-button
                       onClick={(e) => {
                         e.stopPropagation();
                         setProductsDropdownOpen(!productsDropdownOpen);
@@ -109,6 +120,7 @@ export default function Header() {
 
                     {/* Desktop dropdown menu */}
                     <div
+                      data-products-dropdown-menu
                       className={`absolute top-full left-0 mt-2 w-48 rounded-lg shadow-xl transition-all duration-200 origin-top ${
                         productsDropdownOpen
                           ? "opacity-100 scale-y-100 visible"

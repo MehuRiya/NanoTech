@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SEO from "../components/SEO";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -6,6 +6,7 @@ import ProductCard from "../components/ProductCard";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import products from "../data/products";
 import { motion } from "framer-motion";
+import { useTheme } from "../hooks/useTheme";
 
 const CATEGORIES = ["All", "Server", "Switch", "LAN Card", "SFP", "RAM", "Power Supply"];
 
@@ -33,25 +34,7 @@ const SEGMENTS = {
 
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState("All");
-  const [isDark, setIsDark] = useState(true);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    // Check theme from html element
-    const htmlElement = document.documentElement;
-    const theme = htmlElement.classList.contains('light') ? 'light' : 'dark';
-    setIsDark(theme === 'dark');
-    setMounted(true);
-
-    // Listen for theme changes
-    const observer = new MutationObserver(() => {
-      const newTheme = htmlElement.classList.contains('light') ? 'light' : 'dark';
-      setIsDark(newTheme === 'dark');
-    });
-
-    observer.observe(htmlElement, { attributes: true, attributeFilter: ['class'] });
-    return () => observer.disconnect();
-  }, []);
+  const { isDark } = useTheme();
 
   const filtered =
     activeCategory === "All"

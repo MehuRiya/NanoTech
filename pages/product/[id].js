@@ -7,7 +7,7 @@ import FloatingWhatsApp from "../../components/FloatingWhatsApp";
 import Link from "next/link";
 import Image from "next/image";
 import products from "../../data/products";
-import { useState, useEffect } from "react";
+import { useTheme } from "../../hooks/useTheme";
 
 export async function getStaticPaths() {
   const paths = products.map((p) => ({ params: { id: String(p.id) } }));
@@ -30,25 +30,7 @@ const CATEGORY_COLORS = {
 };
 
 export default function ProductDetail({ product }) {
-  const [isDark, setIsDark] = useState(true);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    // Check theme from html element or localStorage
-    const htmlElement = document.documentElement;
-    const theme = htmlElement.classList.contains('light') ? 'light' : 'dark';
-    setIsDark(theme === 'dark');
-    setMounted(true);
-
-    // Listen for theme changes
-    const observer = new MutationObserver(() => {
-      const newTheme = htmlElement.classList.contains('light') ? 'light' : 'dark';
-      setIsDark(newTheme === 'dark');
-    });
-
-    observer.observe(htmlElement, { attributes: true, attributeFilter: ['class'] });
-    return () => observer.disconnect();
-  }, []);
+  const { isDark } = useTheme();
   
   const badgeClass = CATEGORY_COLORS[product.category] || "bg-gray-800 text-gray-300 border-gray-700";
   const related = products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 3);
