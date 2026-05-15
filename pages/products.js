@@ -5,8 +5,31 @@ import Footer from "../components/Footer";
 import ProductCard from "../components/ProductCard";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import products from "../data/products";
+import { motion } from "framer-motion";
 
 const CATEGORIES = ["All", "Server", "Switch", "LAN Card", "SFP", "RAM", "Power Supply"];
+
+// Product segments for better organization
+const SEGMENTS = {
+  enterprise: {
+    title: "Enterprise Solutions",
+    description: "High-performance servers and infrastructure for large-scale operations",
+    categories: ["Server", "Switch"],
+    icon: "🏢"
+  },
+  networking: {
+    title: "Networking & Connectivity",
+    description: "Network cards, transceivers, and switches for robust connectivity",
+    categories: ["LAN Card", "SFP", "Switch"],
+    icon: "🌐"
+  },
+  components: {
+    title: "System Components",
+    description: "Memory modules and power supplies for system optimization",
+    categories: ["RAM", "Power Supply"],
+    icon: "⚙️"
+  }
+};
 
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -15,6 +38,32 @@ export default function Products() {
     activeCategory === "All"
       ? products
       : products.filter((p) => p.category === activeCategory);
+
+  // Group products by segment
+  const getSegmentProducts = (segmentKey) => {
+    const segment = SEGMENTS[segmentKey];
+    return products.filter(p => segment.categories.includes(p.category));
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: "easeOut" },
+    },
+  };
 
   return (
     <>
@@ -25,42 +74,138 @@ export default function Products() {
       <Header />
       <main className="pt-24 bg-dark-bg min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="mb-10">
+          {/* Header Section */}
+          <motion.div 
+            className="mb-12"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <span className="text-accent text-xs font-semibold uppercase tracking-widest">Catalogue</span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-white mt-1 mb-2">Our Products</h1>
-            <p className="text-gray-400 max-w-xl">
-              Enterprise-grade hardware for servers, networking, memory, and power — all available in Bangladesh.
+            <h1 className="text-4xl sm:text-5xl font-bold text-white mt-2 mb-3">Our Products</h1>
+            <p className="text-gray-400 max-w-2xl text-lg">
+              Enterprise-grade hardware for servers, networking, memory, and power — all available in Bangladesh. Browse our complete catalogue or explore by business need.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Filter bar */}
-          <div className="flex flex-wrap gap-2 mb-10">
-            {CATEGORIES.map((cat) => (
-              <button
+          {/* Quick Filter Bar */}
+          <motion.div 
+            className="flex flex-wrap gap-2.5 mb-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+          >
+            {CATEGORIES.map((cat, idx) => (
+              <motion.button
                 key={cat}
                 type="button"
                 onClick={() => setActiveCategory(cat)}
                 aria-pressed={activeCategory === cat}
-                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: idx * 0.05 }}
+                className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
                   activeCategory === cat
-                    ? "bg-accent text-white shadow-lg shadow-accent/25"
+                    ? "bg-accent text-white shadow-lg shadow-accent/30"
                     : "bg-surface-alt border border-gray-700 text-gray-400 hover:text-white hover:border-accent/40 hover:bg-surface"
                 }`}
               >
                 {cat}
-              </button>
+              </motion.button>
             ))}
-          </div>
+          </motion.div>
 
-          {/* Products grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filtered.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+          {/* Category View */}
+          {activeCategory !== "All" && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="mb-12 p-4 bg-surface-alt/50 border border-accent/20 rounded-2xl"
+            >
+              <p className="text-gray-300">
+                <span className="font-semibold text-accent">{filtered.length}</span> product{filtered.length !== 1 ? 's' : ''} in <span className="font-semibold text-white">{activeCategory}</span>
+              </p>
+            </motion.div>
+          )}
 
-          {filtered.length === 0 && (
-            <p className="text-gray-400 text-center py-20">No products found in this category.</p>
+          {/* Products Grid - Category View */}
+          {activeCategory !== "All" && (
+            <motion.div 
+              className="mb-16"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {filtered.map((product) => (
+                  <motion.div key={product.id} variants={itemVariants}>
+                    <ProductCard product={product} />
+                  </motion.div>
+                ))}
+              </div>
+              {filtered.length === 0 && (
+                <p className="text-gray-400 text-center py-20">No products found in this category.</p>
+              )}
+            </motion.div>
+          )}
+
+          {/* Segment View - All Products */}
+          {activeCategory === "All" && (
+            <>
+              {Object.entries(SEGMENTS).map(([key, segment], segmentIdx) => {
+                const segmentProducts = getSegmentProducts(key);
+                return (
+                  <motion.section
+                    key={key}
+                    className="mb-16"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5, delay: segmentIdx * 0.1 }}
+                  >
+                    {/* Segment Header */}
+                    <div className="mb-8">
+                      <div className="flex items-start gap-3 mb-2">
+                        <span className="text-3xl">{segment.icon}</span>
+                        <div>
+                          <h2 className="text-2xl sm:text-3xl font-bold text-white">{segment.title}</h2>
+                          <p className="text-gray-400 text-sm mt-1">{segment.description}</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-2 mt-4">
+                        {segment.categories.map((cat) => (
+                          <span
+                            key={cat}
+                            onClick={() => setActiveCategory(cat)}
+                            className="text-xs px-3 py-1 bg-accent/10 border border-accent/30 text-accent rounded-lg cursor-pointer hover:bg-accent/20 transition-colors"
+                          >
+                            {cat}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Segment Products Grid */}
+                    <motion.div 
+                      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                      variants={containerVariants}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                    >
+                      {segmentProducts.map((product) => (
+                        <motion.div key={product.id} variants={itemVariants}>
+                          <ProductCard product={product} />
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  </motion.section>
+                );
+              })}
+            </>
           )}
         </div>
       </main>

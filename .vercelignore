@@ -1,0 +1,14 @@
+.git
+.gitignore
+README.md
+.env.example
+.eslintrc.json
+.next/cache
+node_modules
+npm-debug.log
+.DS_Store
+*.pem
+.idea
+.vscode
+*.swp
+*.swo
