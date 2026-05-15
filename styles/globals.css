@@ -10,6 +10,12 @@ body {
   background-color: #030712;
   color: #f9fafb;
   font-family: "Inter", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.light body {
+  background-color: #f9fafb;
+  color: #111827;
 }
 
 /* Product card image animations */
@@ -26,6 +32,10 @@ body {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   transform: translateX(-100%);
   animation: shimmer 2s infinite;
+}
+
+html.light .product-image-wrapper::after {
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
 }
 
 /* Smooth transitions for interactive elements */
@@ -50,8 +60,17 @@ a:focus-visible {
   background: #030712;
 }
 
+html.light ::-webkit-scrollbar-track {
+  background: #f9fafb;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #1f2937;
+  border-radius: 4px;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #d1d5db;
   border-radius: 4px;
 }
 
@@ -59,8 +78,17 @@ a:focus-visible {
   background: #374151;
 }
 
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
 /* Text selection styling */
 ::selection {
+  background-color: #e11d48;
+  color: #ffffff;
+}
+
+html.light ::selection {
   background-color: #e11d48;
   color: #ffffff;
 }
