@@ -65,7 +65,7 @@ export default function ProductCard({ product }) {
         </Link>
 
         {/* Specs Preview */}
-        <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1 line-clamp-3">
+        <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1 line-clamp-2">
           {product.shortSpecs}
         </p>
 

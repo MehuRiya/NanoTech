@@ -73,7 +73,7 @@ const nextConfig = {
 
   // Experimental features for better performance
   experimental: {
-    optimizePackageImports: ["@radix-ui/react-dialog"],
+    // optimizePackageImports: ["@radix-ui/react-dialog"],
   },
 };
 
