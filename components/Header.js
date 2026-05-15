@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ThemeContext } from "../context/ThemeContext";
@@ -20,12 +20,22 @@ const PRODUCT_CATEGORIES = [
   "Power Supply",
 ];
 
+/**
+ * Helper function to construct category URL
+ */
+function getCategoryUrl(category) {
+  return `/products${category !== "All" ? `?category=${category}` : ""}`;
+}
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
   const themeContext = useContext(ThemeContext);
   const { theme = "dark", toggleTheme = () => {}, mounted = true } = themeContext || {};
+  
+  const dropdownButtonRef = useRef(null);
+  const dropdownMenuRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -36,13 +46,9 @@ export default function Header() {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
-      // Get the dropdown container
-      const dropdownButton = document.querySelector('[data-products-dropdown-button]');
-      const dropdownMenu = document.querySelector('[data-products-dropdown-menu]');
-      
-      // Check if click is outside both button and menu
-      if (dropdownButton && dropdownMenu) {
-        if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+      // Check if click is outside both button and menu using refs
+      if (dropdownButtonRef.current && dropdownMenuRef.current) {
+        if (!dropdownButtonRef.current.contains(e.target) && !dropdownMenuRef.current.contains(e.target)) {
           setProductsDropdownOpen(false);
         }
       }
@@ -89,7 +95,7 @@ export default function Header() {
                 return (
                   <div key={link.href} className="relative group">
                     <button
-                      data-products-dropdown-button
+                      ref={dropdownButtonRef}
                       onClick={(e) => {
                         e.stopPropagation();
                         setProductsDropdownOpen(!productsDropdownOpen);
@@ -120,7 +126,7 @@ export default function Header() {
 
                     {/* Desktop dropdown menu */}
                     <div
-                      data-products-dropdown-menu
+                      ref={dropdownMenuRef}
                       className={`absolute top-full left-0 mt-2 w-48 rounded-lg shadow-xl transition-all duration-200 origin-top ${
                         productsDropdownOpen
                           ? "opacity-100 scale-y-100 visible"
@@ -134,7 +140,7 @@ export default function Header() {
                       {PRODUCT_CATEGORIES.map((category) => (
                         <Link
                           key={category}
-                          href={`/products${category !== "All" ? `?category=${category}` : ""}`}
+                          href={getCategoryUrl(category)}
                           className={`block px-4 py-3 text-sm font-medium transition-colors first:rounded-t-lg last:rounded-b-lg ${
                             isDark
                               ? "text-gray-300 hover:text-white hover:bg-gray-800 border-b border-gray-800/50 last:border-b-0"
@@ -272,7 +278,7 @@ export default function Header() {
                       {PRODUCT_CATEGORIES.map((category) => (
                         <Link
                           key={category}
-                          href={`/products${category !== "All" ? `?category=${category}` : ""}`}
+                          href={getCategoryUrl(category)}
                           className={`text-sm font-medium transition-colors py-1 ${
                             isDark
                               ? "text-gray-400 hover:text-white"

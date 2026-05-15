@@ -2,6 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 
 /**
+ * Helper to get theme from html element classList
+ */
+function getThemeFromClassList(htmlElement) {
+  return htmlElement.classList.contains("light") ? "light" : "dark";
+}
+
+/**
  * Custom hook to safely use theme in components
  * Handles both context usage and fallback to MutationObserver for SSR compatibility
  */
@@ -13,13 +20,13 @@ export function useTheme() {
   useEffect(() => {
     // Check theme from html element
     const htmlElement = document.documentElement;
-    const theme = htmlElement.classList.contains("light") ? "light" : "dark";
+    const theme = getThemeFromClassList(htmlElement);
     setIsDark(theme === "dark");
     setMounted(true);
 
     // Listen for theme changes
     const observer = new MutationObserver(() => {
-      const newTheme = htmlElement.classList.contains("light") ? "light" : "dark";
+      const newTheme = getThemeFromClassList(htmlElement);
       setIsDark(newTheme === "dark");
     });
 
