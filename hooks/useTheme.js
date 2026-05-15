@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useCallback } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 
 /**
@@ -24,11 +24,14 @@ export function useTheme() {
     setIsDark(theme === "dark");
     setMounted(true);
 
-    // Listen for theme changes
-    const observer = new MutationObserver(() => {
+    // Memoized callback for theme detection on mutations
+    const handleThemeChange = useCallback(() => {
       const newTheme = getThemeFromClassList(htmlElement);
       setIsDark(newTheme === "dark");
-    });
+    }, []);
+
+    // Listen for theme changes
+    const observer = new MutationObserver(handleThemeChange);
 
     observer.observe(htmlElement, { attributes: true, attributeFilter: ["class"] });
     return () => observer.disconnect();

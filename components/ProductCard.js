@@ -21,12 +21,17 @@ const LIGHT_MODE_CATEGORY_COLORS = {
   "Power Supply": "bg-yellow-100/60 text-yellow-700 border-yellow-200/60 hover:bg-yellow-100/80",
 };
 
+// Default badge classes for missing categories
+const DEFAULT_DARK_BADGE = "bg-gray-800 text-gray-300 border-gray-700";
+const DEFAULT_LIGHT_BADGE = "bg-gray-200 text-gray-700 border-gray-300";
+
 export default function ProductCard({ product }) {
   const [isHovering, setIsHovering] = useState(false);
   const { isDark } = useTheme();
   
   const colorMap = isDark ? CATEGORY_COLORS : LIGHT_MODE_CATEGORY_COLORS;
-  const badgeClass = colorMap[product.category] || (isDark ? "bg-gray-800 text-gray-300 border-gray-700" : "bg-gray-200 text-gray-700 border-gray-300");
+  const defaultBadge = isDark ? DEFAULT_DARK_BADGE : DEFAULT_LIGHT_BADGE;
+  const badgeClass = colorMap[product.category] || defaultBadge;
   const message = `Hello NanoTech Solutions! I'm interested in ${product.name}. Please share pricing and availability.`;
 
   return (

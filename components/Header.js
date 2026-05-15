@@ -47,10 +47,10 @@ export default function Header() {
   useEffect(() => {
     const handleClickOutside = (e) => {
       // Check if click is outside both button and menu using refs
-      if (dropdownButtonRef.current && dropdownMenuRef.current) {
-        if (!dropdownButtonRef.current.contains(e.target) && !dropdownMenuRef.current.contains(e.target)) {
-          setProductsDropdownOpen(false);
-        }
+      if (dropdownButtonRef.current && dropdownMenuRef.current && 
+          !dropdownButtonRef.current.contains(e.target) && 
+          !dropdownMenuRef.current.contains(e.target)) {
+        setProductsDropdownOpen(false);
       }
     };
     
